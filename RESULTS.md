@@ -16,7 +16,7 @@ with an idle GPU (no server process holding VRAM).
 
 | llama.cpp | model | size | pp512 t/s | tg128 t/s |
 |---|---|---|---:|---:|
-| e6d624b (0.6.0 line) | `Inkling-2-Mini-UD-Q3_K_XL.gguf` | 12.68 GiB | 537.87 ± 3.69 | 27.40 ± 0.04 |
+| e6d624b | `Inkling-2-Mini-UD-Q3_K_XL.gguf` | 12.68 GiB | 537.87 ± 3.69 | 27.40 ± 0.04 |
 | **b12669** | `Inkling-2-Mini-UD-Q3_K_XL.gguf` | 12.68 GiB | **810.33 ± 4.17** | **52.17 ± 0.31** |
 | **b12669** | `Inkling-2-Mini-IQ4_NL.gguf` | 16.41 GiB | 114.73 ± 0.49 | 29.62 ± 0.02 |
 

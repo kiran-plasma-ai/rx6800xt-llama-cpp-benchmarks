@@ -4,6 +4,8 @@ What one RDNA2 card does with a 26.4B Mixture-of-Experts model when llama.cpp ru
 instead of ROCm, and what the engine build is worth.
 
 **Hardware:** Ryzen 5 5600X, 32 GB RAM, AMD Radeon RX 6800 XT 16 GB (NAVI21, `gfx1030`).
+**Model:** Inkling 2 Mini (26.4B MoE) in Unsloth Dynamic quantizations — UD-Q3_K_XL (12.68 GiB)
+and IQ4_NL (16.41 GiB).
 **Software:** llama.cpp b12669 (`1.0.0-dev`, commit `30ec35a`) and e6d624b, `GGML_VULKAN=ON`,
 Vulkan/RADV, Mesa radv driver. No ROCm — HIP was disabled on this machine because ROCm 10.1
 segfaults on `hipStreamCreate`. The Vulkan backend does not need it.

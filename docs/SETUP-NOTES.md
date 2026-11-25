@@ -66,7 +66,7 @@ curl -sf http://127.0.0.1:8882/health   # ~30 s to load; prints {"status":"ok"}
   `chat_template_kwargs`; support in llama.cpp is recent (b12633+).
 - Thinking comes back in `reasoning_content`, the answer in `content`. A small `max_tokens`
   can be eaten entirely by reasoning, leaving `content` empty — that is not a broken server.
-- Text-only re-quantizations (e.g. abliterated community builds) have no vision tower and no
+- Text-only re-quantizations (some community builds drop them) have no vision tower and no
   MTP drafter: drop `--mmproj` and any `dspark` argument for those.
 
 ## Pitfalls
@@ -79,9 +79,9 @@ curl -sf http://127.0.0.1:8882/health   # ~30 s to load; prints {"status":"ok"}
   the log (`bench/bench.sh` does this).
 - **Context size is not free.** `-c 131072` with `q8_0` KV fits next to the 12.68 GiB
   Q3_K_XL on 16 GB, but leaves little room for a second process using the GPU.
-- **Gated model repositories.** The `orcarouter/...` abliterated packs are gated. `README.md`
-  is readable without approval; the `.gguf` files return `403 GatedRepo` until the account
-  clicks *Agree and access repository* in a browser. There is no API route for that click
+- **Gated model repositories.** Some quant repositories are gated. `README.md` is readable
+  without approval; the `.gguf` files return `403 GatedRepo` until the account clicks *Agree
+  and access repository* in a browser. There is no API route for that click
   (`/api/models/<repo>/ask-access` and friends return 404), so it cannot be automated.
 - **Strata** (the HIP/CUDA engine) does not help on this card: no Vulkan backend, the
   `gfx1030` path has no matrix cores or hipBLASLt kernels (its prompt GEMMs fall back to
