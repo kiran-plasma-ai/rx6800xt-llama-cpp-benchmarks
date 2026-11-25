@@ -1,0 +1,6 @@
+# local notes, not part of the published repository
+AGENTS.md
+*.gguf
+*.gguf.*
+.cache/
+__pycache__/
